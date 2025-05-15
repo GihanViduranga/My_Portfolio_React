@@ -1,8 +1,9 @@
 // src/components/Navbar.tsx
 import { useState } from "react";
 import { Link } from "react-scroll";
+import "tailwindcss";
 
-const Navbar = () => {
+const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -10,7 +11,7 @@ const Navbar = () => {
             {/* Logo */}
             <div className="w-10 h-10">
                 <img
-                    src="/src/assets/images/Your%20paragraph%20text.png"
+                    src="../../src/assets/images/Logo.png"
                     alt="logo"
                     className="w-full h-full object-contain"
                 />
@@ -137,4 +138,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default NavBar;
