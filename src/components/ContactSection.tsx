@@ -1,7 +1,7 @@
 // src/components/ContactSection.tsx
 const ContactSection = () => {
     return (
-        <section id="contact" className="py-20 bg-white px-4">
+        <section id="contact" className="py-40 bg-white px-4">
             <div className="max-w-6xl mx-auto">
                 <h2 className="text-4xl font-bold text-center mb-12">
                     Get In <span className="text-purple-600">Touch</span>

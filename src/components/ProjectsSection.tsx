@@ -19,7 +19,7 @@ const projects = [
 
 const ProjectsSection = () => {
     return (
-        <section id="projects" className="py-20 px-4 max-w-6xl mx-auto">
+        <section id="projects" className="py-40 px-4 max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-12">
                 My <span className="text-purple-600">Projects</span>
             </h2>

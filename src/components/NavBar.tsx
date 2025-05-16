@@ -1,10 +1,17 @@
-// src/components/Navbar.tsx
 import { useState } from "react";
-import { Link } from "react-scroll";
+import { NavLink } from "react-router-dom";
 import "tailwindcss";
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
+
+    // NavLink styles for active state
+    const linkClasses = ({ isActive }: { isActive: boolean }) =>
+        `transition-colors cursor-pointer ${
+            isActive
+                ? 'text-purple-600 font-medium'
+                : 'text-black hover:text-purple-600'
+        }`;
 
     return (
         <nav className="flex items-center justify-between w-full max-w-[1200px] bg-transparent mx-auto bg-white border border-black px-6 py-4 rounded-full shadow-md fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
@@ -19,51 +26,36 @@ const NavBar = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex flex-1 justify-center gap-6">
-                <Link
-                    to="home"
-                    smooth={true}
-                    duration={500}
-                    className="text-black hover:text-purple-600 cursor-pointer transition-colors"
-                    activeClass="text-purple-600 font-medium"
+                <NavLink
+                    to="/"
+                    className={linkClasses}
                 >
                     Home
-                </Link>
-                <Link
-                    to="about"
-                    smooth={true}
-                    duration={500}
-                    className="text-black hover:text-purple-600 cursor-pointer transition-colors"
-                    activeClass="text-purple-600 font-medium"
+                </NavLink>
+                <NavLink
+                    to="/about"
+                    className={linkClasses}
                 >
                     About
-                </Link>
-                <Link
-                    to="skills"
-                    smooth={true}
-                    duration={500}
-                    className="text-black hover:text-purple-600 cursor-pointer transition-colors"
-                    activeClass="text-purple-600 font-medium"
+                </NavLink>
+                <NavLink
+                    to="/skills"
+                    className={linkClasses}
                 >
                     Skills
-                </Link>
-                <Link
-                    to="projects"
-                    smooth={true}
-                    duration={500}
-                    className="text-black hover:text-purple-600 cursor-pointer transition-colors"
-                    activeClass="text-purple-600 font-medium"
+                </NavLink>
+                <NavLink
+                    to="/projects"
+                    className={linkClasses}
                 >
                     Projects
-                </Link>
-                <Link
-                    to="contact"
-                    smooth={true}
-                    duration={500}
-                    className="text-black hover:text-purple-600 cursor-pointer transition-colors"
-                    activeClass="text-purple-600 font-medium"
+                </NavLink>
+                <NavLink
+                    to="/contact"
+                    className={linkClasses}
                 >
                     Contact
-                </Link>
+                </NavLink>
             </div>
 
             {/* Mobile menu button */}
@@ -87,51 +79,71 @@ const NavBar = () => {
             {/* Mobile Navigation */}
             {isOpen && (
                 <div className="md:hidden absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg mt-2 py-2 px-4">
-                    <Link
-                        to="home"
-                        smooth={true}
-                        duration={500}
-                        className="block py-2 text-black hover:text-purple-600 cursor-pointer transition-colors"
+                    <NavLink
+                        to="/"
+                        className={({ isActive }) =>
+                            `block py-2 transition-colors cursor-pointer ${
+                                isActive
+                                    ? 'text-purple-600 font-medium'
+                                    : 'text-black hover:text-purple-600'
+                            }`
+                        }
                         onClick={() => setIsOpen(false)}
                     >
                         Home
-                    </Link>
-                    <Link
-                        to="about"
-                        smooth={true}
-                        duration={500}
-                        className="block py-2 text-black hover:text-purple-600 cursor-pointer transition-colors"
+                    </NavLink>
+                    <NavLink
+                        to="/about"
+                        className={({ isActive }) =>
+                            `block py-2 transition-colors cursor-pointer ${
+                                isActive
+                                    ? 'text-purple-600 font-medium'
+                                    : 'text-black hover:text-purple-600'
+                            }`
+                        }
                         onClick={() => setIsOpen(false)}
                     >
                         About
-                    </Link>
-                    <Link
-                        to="skills"
-                        smooth={true}
-                        duration={500}
-                        className="block py-2 text-black hover:text-purple-600 cursor-pointer transition-colors"
+                    </NavLink>
+                    <NavLink
+                        to="/skills"
+                        className={({ isActive }) =>
+                            `block py-2 transition-colors cursor-pointer ${
+                                isActive
+                                    ? 'text-purple-600 font-medium'
+                                    : 'text-black hover:text-purple-600'
+                            }`
+                        }
                         onClick={() => setIsOpen(false)}
                     >
                         Skills
-                    </Link>
-                    <Link
-                        to="projects"
-                        smooth={true}
-                        duration={500}
-                        className="block py-2 text-black hover:text-purple-600 cursor-pointer transition-colors"
+                    </NavLink>
+                    <NavLink
+                        to="/projects"
+                        className={({ isActive }) =>
+                            `block py-2 transition-colors cursor-pointer ${
+                                isActive
+                                    ? 'text-purple-600 font-medium'
+                                    : 'text-black hover:text-purple-600'
+                            }`
+                        }
                         onClick={() => setIsOpen(false)}
                     >
                         Projects
-                    </Link>
-                    <Link
-                        to="contact"
-                        smooth={true}
-                        duration={500}
-                        className="block py-2 text-black hover:text-purple-600 cursor-pointer transition-colors"
+                    </NavLink>
+                    <NavLink
+                        to="/contact"
+                        className={({ isActive }) =>
+                            `block py-2 transition-colors cursor-pointer ${
+                                isActive
+                                    ? 'text-purple-600 font-medium'
+                                    : 'text-black hover:text-purple-600'
+                            }`
+                        }
                         onClick={() => setIsOpen(false)}
                     >
                         Contact
-                    </Link>
+                    </NavLink>
                 </div>
             )}
         </nav>
